@@ -1,0 +1,11 @@
+{
+    "name": "wallacemaxters/facebook",
+    "description": "implementation of facebook PersistentData for libraries that do not use native session of php",
+    "authors": [
+        {
+            "name": "Wallace de Souza",
+            "email": "wallacemaxters@gmail.com"
+        }
+    ],
+    "require": {}
+}
