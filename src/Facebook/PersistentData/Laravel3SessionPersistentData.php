@@ -13,40 +13,40 @@ use Laravel\Session;
 
 class Laravel3SessionPersistentData implements PersistentDataInterface
 {
-	/**
-	 * Namespace used in Laravel 3 session
-	 * @var string
-	 * */
-	protected $namespace = 'facebook';
-	
-	/**
-	 * {@inheritdoc}
-	 * */
-	public function set($name, $value)
-	{
-		Session::put($this->namespace, [$name => $value]);
-	}
+    /**
+     * Namespace used in Laravel 3 session
+     * @var string
+     * */
+    protected $namespace = 'facebook';
+    
+    /**
+     * {@inheritdoc}
+     * */
+    public function set($name, $value)
+    {
+        Session::put($this->namespace, [$name => $value]);
+    }
 
-	/**
-	 * {@inheritdoc}
-	 * */
+    /**
+     * {@inheritdoc}
+     * */
 
-	public function get($name)
-	{
-		return Session::get($this->namespace . '.' . $name);
-	}
+    public function get($name)
+    {
+        return Session::get($this->namespace . '.' . $name);
+    }
 
-	/**
-	 * Define the "namespace" from session
-	 * */
-	public function setSessionNamespace($namespace)
-	{	
-		// Clear data for old session namespace
+    /**
+     * Define the "namespace" from session
+     * */
+    public function setSessionNamespace($namespace)
+    {   
+        // Clear data for old session namespace
 
-		Session::forget($this->namespace);
+        Session::forget($this->namespace);
 
-		$this->namespace = $namespace;
+        $this->namespace = $namespace;
 
-		return $this;
-	}
+        return $this;
+    }
 }
